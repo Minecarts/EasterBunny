@@ -166,7 +166,7 @@ public class Plugin extends JavaPlugin implements Listener {
     
     
     // allow players to ride chickens
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler
     public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
         Player player = event.getPlayer();
         Entity entity = event.getRightClicked();
@@ -178,7 +178,7 @@ public class Plugin extends JavaPlugin implements Listener {
     }
     
     // apply jump effect when hit by an egg
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if(!(event.getDamager() instanceof Egg)) return;
         if(!(event.getEntity() instanceof LivingEntity)) return;
