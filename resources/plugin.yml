@@ -1,0 +1,8 @@
+name: EasterBunny
+description: Time for some egg huntin'!
+author: megabytes
+website: http://www.minecarts.com/
+
+main: com.minecarts.easterbunny.Plugin
+version: ${pom.version}
+
