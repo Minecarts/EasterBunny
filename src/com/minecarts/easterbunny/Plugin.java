@@ -190,8 +190,13 @@ public class Plugin extends JavaPlugin implements Listener {
         if(!(event.getDamager() instanceof Egg)) return;
         if(!(event.getEntity() instanceof LivingEntity)) return;
         
-        ((LivingEntity) event.getEntity()).addPotionEffect(JUMP);
-        debug("Applied jump effect to entity {0}", event.getEntity());
+        LivingEntity entity = (LivingEntity) event.getEntity();
+        if(!entity.hasPotionEffect(PotionEffectType.JUMP) && entity.addPotionEffect(JUMP)) {
+            if(entity instanceof Player) {
+                ((Player) entity).sendMessage(String.format("%sYou feel very...bouncy.", ChatColor.GRAY));
+            }
+            debug("Applied jump effect to entity {0}", entity);
+        }
     }
     
     // cancel fall damage if jump effect is active
