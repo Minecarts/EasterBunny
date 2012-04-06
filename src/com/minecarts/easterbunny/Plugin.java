@@ -6,6 +6,7 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Date;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -40,11 +41,12 @@ import org.bukkit.potion.PotionEffectType;
 
 
 public class Plugin extends JavaPlugin implements Listener {
-    protected static final int REPEAT_DELAY = 20 * 60 * 5;
+    protected static final int EGG_FREQUENCY = 60 * 5; // in seconds
     protected static final PotionEffect JUMP = new PotionEffect(PotionEffectType.JUMP, 20 * 15, 5);
     protected static final int LONG_GRASS = Material.LONG_GRASS.getId();
     
     protected final Random random = new Random();
+    protected Date lastEgg = new Date();
     protected final ItemStack[] eggChoices = new ItemStack[]{
         // common choices
         new ItemStack(Material.EGG),
@@ -92,6 +94,8 @@ public class Plugin extends JavaPlugin implements Listener {
         
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
             public void run() {
+                if(new Date().getTime() - lastEgg.getTime() < EGG_FREQUENCY * 1000) return;
+                
                 List<Player> players = new ArrayList<Player>();
                 List<Item> items = new ArrayList<Item>();
                 for(World world : Bukkit.getWorlds()) {
@@ -161,7 +165,7 @@ public class Plugin extends JavaPlugin implements Listener {
                 // notify server
                 Bukkit.broadcastMessage(String.format("%sA colorful egg was hidden in the tall grass near %s%s.", ChatColor.GRAY, player.getDisplayName(), ChatColor.GRAY));
             }
-        }, REPEAT_DELAY, REPEAT_DELAY);
+        }, 20 * 60, 20 * 60);
     }
     
     
