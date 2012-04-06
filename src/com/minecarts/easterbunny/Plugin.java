@@ -159,7 +159,7 @@ public class Plugin extends JavaPlugin implements Listener {
                 debug("Spawned item {0} at {1}", item, item.getLocation());
                 
                 // notify server
-                Bukkit.broadcastMessage(String.format("%sA colorful egg was hidden the tall grass near %s%s.", ChatColor.GRAY, player.getDisplayName(), ChatColor.GRAY));
+                Bukkit.broadcastMessage(String.format("%sA colorful egg was hidden in the tall grass near %s%s.", ChatColor.GRAY, player.getDisplayName(), ChatColor.GRAY));
             }
         }, REPEAT_DELAY, REPEAT_DELAY);
     }
