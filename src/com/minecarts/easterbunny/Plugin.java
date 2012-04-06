@@ -164,6 +164,9 @@ public class Plugin extends JavaPlugin implements Listener {
                 
                 // notify server
                 Bukkit.broadcastMessage(String.format("%sA colorful egg was hidden in the tall grass near %s%s.", ChatColor.GRAY, player.getDisplayName(), ChatColor.GRAY));
+                
+                // update last egg spawn date
+                lastEgg = new Date();
             }
         }, 20 * 60, 20 * 60);
     }
