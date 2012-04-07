@@ -47,6 +47,8 @@ public class Plugin extends JavaPlugin implements Listener {
     
     protected final Random random = new Random();
     protected Date lastEgg = new Date();
+    protected List<Player> pastPlayers = new ArrayList<Player>();
+    
     protected final ItemStack[] eggChoices = new ItemStack[]{
         // common choices
         new ItemStack(Material.EGG),
@@ -116,8 +118,13 @@ public class Plugin extends JavaPlugin implements Listener {
                             break;
                     }
                 }
+                
+                // remove past players to give others a chance
+                players.removeAll(pastPlayers);
+                
                 if(players.isEmpty()) {
-                    debug("SKIP! No players in normal world(s)");
+                    debug("SKIP! No new players in normal world(s)");
+                    pastPlayers.clear();
                     return;
                 }
                 if(items.size() > 20) {
@@ -167,6 +174,7 @@ public class Plugin extends JavaPlugin implements Listener {
                 
                 // update last egg spawn date
                 lastEgg = new Date();
+                pastPlayers.add(player);
             }
         }, 20 * 60, 20 * 60);
     }
