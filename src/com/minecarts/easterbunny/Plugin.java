@@ -136,6 +136,7 @@ public class Plugin extends JavaPlugin implements Listener {
                 // select a random player
                 Player player = players.get(random.nextInt(players.size()));
                 debug("Player {0} selected", player);
+                pastPlayers.add(player);
                 
                 World world = player.getWorld();
                 Location loc = player.getLocation();
@@ -175,7 +176,6 @@ public class Plugin extends JavaPlugin implements Listener {
                 
                 // update last egg spawn date
                 lastEgg = new Date();
-                pastPlayers.add(player);
             }
         }, 20 * 60, 20 * 60);
     }
