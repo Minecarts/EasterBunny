@@ -51,12 +51,12 @@ public class Plugin extends JavaPlugin implements Listener {
     
     protected final ItemStack[] eggChoices = new ItemStack[]{
         // common choices
-        new ItemStack(Material.EGG),
-        new ItemStack(Material.EGG),
-        new ItemStack(Material.EGG),
-        new ItemStack(Material.EGG),
-        new ItemStack(Material.EGG),
-        new ItemStack(Material.EGG),
+        new ItemStack(Material.EGG, 1),
+        new ItemStack(Material.EGG, 2),
+        new ItemStack(Material.EGG, 3),
+        new ItemStack(Material.EGG, 4),
+        new ItemStack(Material.EGG, 5),
+        new ItemStack(Material.EGG, 6),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.PIG.getTypeId()),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.PIG.getTypeId()),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.PIG.getTypeId()),
@@ -73,7 +73,8 @@ public class Plugin extends JavaPlugin implements Listener {
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.SQUID.getTypeId()),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.SQUID.getTypeId()),
         // rare choices
-        new ItemStack(Material.DIAMOND),
+        new ItemStack(Material.DIAMOND, 1),
+        new ItemStack(Material.DIAMOND, 2),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.VILLAGER.getTypeId()),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.CREEPER.getTypeId()),
         new ItemStack(Material.MONSTER_EGG, 1, EntityType.SKELETON.getTypeId()),
